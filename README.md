@@ -75,9 +75,11 @@ If you want to contribute to the project, please follow the [Contribution Guidel
 
 ## License
 
-This project is licensed under the [ISC License](LICENSE).
+This project is licensed under the [MIT License](LICENSE.md).
 
 ## Acknowledgments
 
-- Special thanks to contributors and mentors.
-- ...
+Special thanks to contributors and mentors.
+
+- [Sushil](https://github.com/sushil7774)
+- [Gehlot Gaurav](https://github.com/GehlotGaurav)

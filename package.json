@@ -1,6 +1,6 @@
 {
   "name": "college-event-website",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "A college event management website",
   "main": "server.js",
   "type": "module",
@@ -23,7 +23,7 @@
     "passport"
   ],
   "author": "KabirJaipal",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
@@ -48,10 +48,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/college-event-website.git"
+    "url": "https://github.com/kabirsingh2004/College-Event-Website.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/college-event-website/issues"
+    "url": "https://github.com/kabirsingh2004/College-Event-Website/issues"
   },
-  "homepage": "https://github.com/yourusername/college-event-website#readme"
+  "homepage": "https://github.com/kabirsingh2004/College-Event-Website#readme"
 }
