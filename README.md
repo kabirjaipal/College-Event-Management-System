@@ -27,13 +27,13 @@ Before running the application, ensure you have the following installed:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/kabirsingh2004/College-Event-Website.git
+   git clone https://github.com/kabirsingh2004/College-Event-Management-System.git
    ```
 
 2. Change to the project directory:
 
    ```bash
-   cd College-Event-Website
+   cd College-Event-Management-System
    ```
 
 3. Install dependencies:
