@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mentors</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <style>
+    .mentor-section {
+      text-align: center;
+      padding: 0.5rem 1.25rem;
+      color: var(--text_color);
+      position: relative;
+    }
+
+    .mentor-section h1 {
+      margin-bottom: 1.875rem;
+      margin-top: 1rem;
+      font-size: 1.5rem;
+      color: var(--secondary_color);
+    }
+
+    .mentor-section .list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(15.625rem, 1fr));
+      gap: 1.25rem;
+    }
+
+    .mentor-section .mentor-list {
+      padding: 1.25rem;
+      border: 1px solid var(--text_color);
+      border-radius: 0.5rem;
+      transition: transform 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    .mentor-list:hover {
+      transform: translateY(5px);
+      border: 1px solid var(--secondary_color);
+      background: linear-gradient(90deg, var(--text_color) 0%, rgba(6, 12, 22, 1) 0%, rgba(78, 78, 186, 1) 33%, rgba(62, 142, 158, 1) 78%);
+    }
+
+    .mentor-list .post {
+      font-weight: 600;
+    }
+
+    .mentor-list:hover .post {
+      color: var(--primary_color);
+    }
+
+    .mentor-list .name {
+      color: black;
+      font-weight: 700;
+      margin-top: 0.625rem;
+    }
+
+    .mentor-list .relate {
+      color: #555;
+      font-size: 0.875rem;
+      margin-top: 0.3125rem;
+    }
+
+    .mentor-list:hover .relate {
+      color: darkgrey;
+    }
+
+    /* Desktop */
+    @media only screen and (min-width: 48.125em) {
+      .mentor-section .list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Tablet */
+    @media only screen and (max-width: 48em) {
+      .mentor-section {
+        padding: 1.25rem 0.625rem;
+        width: 95%;
+        margin: auto;
+      }
+
+      .mentor-section h1 {
+        margin-bottom: 1.25rem;
+        font-size: 1.25rem;
+      }
+
+      .mentor-section .list {
+        grid-template-columns: repeat(1fr, 1fr, 1fr);
+      }
+
+      .mentor-list {
+        padding: 0.9375rem;
+      }
+    }
+
+    /* Mobile */
+    @media only screen and (max-width: 30em) {
+      .mentor-section {
+        padding: 1.25rem 0.3125rem;
+      }
+
+      .post {
+        font-size: 0.75rem;
+      }
+
+      .name {
+        font-size: 0.875rem;
+      }
+
+      .mentor-list .relate {
+        font-size: 0.6875rem;
+      }
+    }
+
+    /* iPhone */
+    @media only screen and (max-width: 21.875em) {
+      .post {
+        font-size: 0.6875rem;
+      }
+
+      .name {
+        font-size: 0.75rem;
+      }
+
+      .mentor-list .relate {
+        font-size: 0.5625rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <%- include('../components/navbar.ejs'); %>
+
+  <% mentorsList.forEach(section=> { %>
+  <section class="mentor-section" id="<%= section.title.toLowerCase().replace(/\s+/g, '-') %>">
+    <h1>
+      <%= section.title %>
+    </h1>
+    <div class="list">
+      <% section.members.forEach(mentor=> { %>
+      <div class="mentor-list">
+        <div class="post">
+          <%= mentor.post %>
+        </div>
+        <div class="name">
+          <%= mentor.name %>
+        </div>
+        <% if (mentor.relate) { %>
+        <div class="relate">
+          <%= mentor.relate %>
+        </div>
+        <% } %>
+      </div>
+      <% }); %>
+    </div>
+  </section>
+  <% }); %>
+
+  <%- include('../components/footer.ejs'); %>
+</body>
+
+</html>

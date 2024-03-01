@@ -1,0 +1,133 @@
+<style>
+  footer {
+    padding: 0.625rem;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    position: relative;
+    /* background: linear-gradient(to left, var(--primary_color), var(--bhagva_color)); */
+    background: var(--secondary_color);
+    color: var(--primary_color);
+    margin-top: 3.125rem;
+  }
+
+  .footer_container {
+    margin-top: 0.625rem;
+    padding: 1.25rem 5%;
+  }
+
+  .contact {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .contact span {
+    margin-bottom: 0.625rem;
+  }
+
+  .contact span a {
+    color: var(--heading_color);
+  }
+
+  .credits {
+    margin-top: 1.25rem;
+  }
+
+  .credits,
+  .additional-info {
+    text-align: center;
+  }
+
+  #developer {
+    font-weight: bold;
+  }
+
+  #developer a {
+    color: var(--heading_color);
+  }
+
+  @media (max-width: 50em) {
+    .contact {
+      flex-direction: column;
+      font-size: 0.875rem;
+    }
+
+    .footer_container {
+      margin: 0;
+    }
+  }
+
+  @media (max-width: 37.5em) {
+    .contact {
+      flex-direction: column;
+      font-size: 0.75rem;
+    }
+
+    .credits p {
+      margin: 0;
+      font-size: 0.875rem;
+    }
+
+    .additional-info {
+      font-size: 0.875rem;
+    }
+  }
+
+  @media (max-width: 23.125em) {
+    .contact {
+      flex-direction: column;
+      font-size: 0.625rem;
+    }
+
+    .credits p {
+      margin: 0;
+      font-size: 0.625rem;
+    }
+
+    .additional-info {
+      font-size: 0.625rem;
+    }
+  }
+</style>
+
+<footer>
+  <div class="footer_container">
+    <div class="contact">
+      <span>College Reception- <span>
+          <a href="tel:02912760175">0291-2760175</a></span></span><span>Dr. Mridula
+        Chanda-
+        <span><a href="tel:9928184192">9928184192</a></span></span><span>Dr. Sony
+        Dewani-
+        <span><a href=" tel:7425936642">7425936642</a></span></span><span>Dr. Lalit
+        Rankawat-
+        <span><a href="tel:9414498796">9414498796</a></span>
+      </span>
+    </div>
+    <div class="credits">
+      <p>
+        Website developed by <br><br>
+        <span id="developer">
+          <a href="https://kabirjaipal.netlify.app/" target="_blank">Kabir Jaipal</a> |
+          <a href="https://sushil.gauravgehlot.in" target="_blank">Sushil Jajra</a> |
+          <a href="https://gauravgehlot.in" target="_blank">Gaurav Gehlot</a>
+        </span>
+      </p>
+    </div>
+    <br>
+    <div class="additional-info">
+      <p>&copy; ACE Event. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const currentYear = new Date().getFullYear();
+    document.querySelector(".additional-info p").innerHTML += ` ${currentYear}`;
+  });
+</script>

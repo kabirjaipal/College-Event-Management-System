@@ -1,0 +1,40 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary_color: #fefefe;
+  --secondary_color: #005183;
+  --heading_color: #ff8800;
+  --bhagva_color: #faa41b;
+  --text_color: #2b2a29;
+}
+
+body {
+  font-family: "Inter";
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  transition: all 300ms ease-in-out;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--text_color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--heading_color);
+  border-radius: 10px;
+}

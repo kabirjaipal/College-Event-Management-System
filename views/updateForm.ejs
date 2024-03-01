@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Update Application</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <style>
+    .container {
+      padding-top: 2rem;
+    }
+
+    .form {
+      max-width: 90%;
+      margin: auto;
+      overflow: hidden;
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .header {
+      text-align: center;
+    }
+
+    .header h1 {
+      color: var(--text_color);
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--text_color);
+      text-align: left;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      box-sizing: border-box;
+      border: 1px solid var(--secondary_color);
+      border-radius: 0.375rem;
+      font-size: 1.125rem;
+      font-family: "Inter";
+      resize: vertical;
+    }
+
+    .form-group select option {
+      padding: 0.625rem;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--text_color);
+    }
+
+    .btns {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 200%;
+      gap: 2rem;
+    }
+
+    .RegisterBtn {
+      background-color: var(--secondary_color);
+      color: #fff;
+      padding: 1.875rem;
+      border: none;
+      border-radius: 0.375rem;
+      cursor: pointer;
+      font-size: 1.125rem;
+      transition: all 0.3s ease-in-out;
+      font-weight: bold;
+    }
+
+    .RegisterBtn:hover {
+      opacity: 0.8;
+    }
+
+    .form-group.mailing-address {
+      grid-column: span 2;
+    }
+
+    .container p {
+      text-align: center;
+      padding: 0 1.25rem;
+      font-size: 1rem;
+      margin-top: 1em;
+    }
+
+    .container p a {
+      font-weight: bold;
+    }
+
+    /* Desktop */
+    @media only screen and (min-width: 64em) {
+      .form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+      }
+    }
+
+    /* Tablet */
+    @media only screen and (min-width: 48em) and (max-width: 63.99em) {
+      .form {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+      }
+
+      .btns {
+        width: 160%;
+      }
+    }
+
+    /* Mobile */
+    @media only screen and (max-width: 47.99em) {
+      .form {
+        display: block;
+      }
+
+      .form-group {
+        margin-bottom: 1rem;
+      }
+
+      .btns {
+        width: 100%;
+      }
+    }
+
+    /* iPhone */
+    @media only screen and (max-width: 23.75em) {
+      .header h1 {
+        font-size: 1.5rem;
+      }
+
+      .form-group label {
+        font-size: 0.9rem;
+      }
+
+      .form-group input {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- navbar -->
+  <%- include('../components/navbar.ejs'); %>
+
+  <div class="container">
+    <div class="header">
+      <h2>Editing <%= user.username %>'s Application</h2>
+    </div>
+    <form method="post" action="/updateForm" class="form">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" name="name" id="name" placeholder="Enter your full name" value="<%= form.name %>" required />
+      </div>
+
+      <div class="form-group">
+        <label for="designation">Designation</label>
+        <input type="text" name="designation" id="designation" placeholder="Enter your designation" value="<%= form.designation %>" required />
+      </div>
+
+      <div class="form-group">
+        <label for="Organization">Organization</label>
+        <input type="text" name="Organization" id="Organization" placeholder="Enter your Organization" value="<%= form.Organization %>" required />
+      </div>
+
+      <div class="form-group">
+        <label for="department">Department</label>
+        <input type="text" name="department" id="department" placeholder="Enter your department" value="<%= form.department %>" required />
+      </div>
+
+      <div class="form-group">
+        <label for="mobileNumber">Mobile-No</label>
+        <input type="tel" name="mobileNumber" id="mobileNumber" placeholder="Enter your mobile number" required value="<%= form.mobileNumber %>" pattern="\d+" title="Please enter a valid mobile number (only positive integers)" />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="Enter your email address" value="<%= form.email %>" required />
+      </div>
+      <div class="form-group">
+        <label for="participantStatus">Status of Participant</label>
+        <select name="participantStatus" id="ParticipantStatus" required>
+          <option value="" disabled <%= form.participantStatus ? '' : 'selected' %>>Select participant status</option>
+          <option value="academician" <%= form.participantStatus === 'academician' ? 'selected' : '' %>>Academician</option>
+          <option value="student" <%= form.participantStatus === 'student' ? 'selected' : '' %>>Scholar/Student</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="presentation">Paper Presentation</label>
+        <select name="presentation" id="Presentation" required>
+          <option value="" disabled <%= form.presentation ? '' : 'selected' %>>Select presentation option</option>
+          <option value="yes" <%= form.presentation === 'yes' ? 'selected' : '' %>>Yes</option>
+          <option value="no" <%= form.presentation === 'no' ? 'selected' : '' %>>No</option>
+        </select>
+      </div>
+      <div class="form-group mailing-address">
+        <label for="address">Residential Address</label>
+        <textarea required name="address" id="address" placeholder="Enter your residential address with pincode"><%= form.address %></textarea>
+      </div>
+      <div class="btns">
+        <div class="form-group">
+          <input type="submit" class="RegisterBtn mailing-address" value="Update Form" />
+        </div>
+      </div>
+    </form>
+    <%- include('../components/footer.ejs'); %>
+  </div>
+</body>
+
+</html>

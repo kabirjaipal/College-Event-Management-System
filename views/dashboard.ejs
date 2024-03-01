@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <style>
+    .container {
+      height: max-content;
+      width: 100%;
+      height: 100%;
+      margin-top: 2rem;
+    }
+
+    .form {
+      width: 80%;
+      max-width: 90%;
+      margin: 3.125rem auto;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .header {
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      font-size: 1rem;
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--text_color);
+    }
+
+    .form-group input,
+    .form-group p,
+    .form-group textarea,
+    .form-group .downloadFile {
+      width: 100%;
+      padding: 0.75rem;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 0.375rem;
+      font-size: 1rem;
+    }
+
+    .form-group .downloadFile {
+      padding: 0.75rem;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .form-group .downloadFile a {
+      font-size: 1rem;
+      color: var(--text_color);
+    }
+
+    .form-group p:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--secondary_color);
+    }
+
+    .RegisterBtn {
+      background-color: var(--secondary_color);
+      color: #fff;
+      padding: 1.875rem;
+      border: none;
+      border-radius: 0.375rem;
+      cursor: pointer;
+      font-size: 1.125rem;
+      font-weight: bold;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .RegisterBtn:hover {
+      opacity: 0.9;
+    }
+
+    .note {
+      text-align: justify;
+      max-width: 70%;
+      margin: auto;
+      text-transform: capitalize;
+      font-size: 1rem;
+    }
+
+    .pay {
+      width: 80%;
+      max-width: 90%;
+      margin: 3.125rem auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .pay .qr {
+      width: 50%;
+      padding: 30px;
+      cursor: pointer;
+    }
+
+    .pay .qr img {
+      height: 30vh;
+    }
+
+    .pay .bank {
+      width: 50%;
+      padding: 30px;
+      line-height: 1.5;
+    }
+
+    .bank ul li {
+      font-size: 1.2rem;
+    }
+
+    /* Styles for mobile devices */
+    @media only screen and (max-width: 37.5em) {
+      .form-group {
+        margin-bottom: 0.9375rem;
+      }
+
+      .note {
+        font-size: 0.8125rem;
+      }
+
+      .header h2 {
+        font-size: 1rem;
+      }
+
+      .form-group label,
+      .form-group p {
+        font-size: 0.8125rem;
+      }
+
+      input[type="submit"],
+      input[type="file"] {
+        font-size: 0.8125rem;
+      }
+    }
+
+    /* Styles for smaller mobile devices */
+    @media only screen and (max-width: 23.125em) {
+      .note {
+        font-size: 0.6875rem;
+      }
+
+      .header h2 {
+        font-size: 0.75rem;
+      }
+
+      .form-group label,
+      .form-group p {
+        font-size: 0.625rem;
+      }
+    }
+
+    /* Styles for tablet devices */
+    @media only screen and (max-width: 696px) {
+      .pay {
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .pay .qr {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .pay .bank {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+      }
+
+      .pay .bank ul {
+        width: 90%;
+      }
+
+      .bank ul li {
+        font-size: 0.8rem;
+      }
+
+    }
+
+    /* Styles for desktop devices */
+    @media only screen and (min-width: 37.5625em) {
+      .form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+      }
+
+      .form-group.mailing-address {
+        grid-column: span 2;
+        font-family: "Arial", sans-serif;
+      }
+
+      .form-group {
+        margin-bottom: 0;
+      }
+    }
+  </style>
+</head>
+<% function formatDate(date) { if (!date || !(date instanceof Date) || isNaN(date.getTime())) { return null; } const
+  options={ year: "numeric" , month: "long" , day: "numeric" , hour: "numeric" , minute: "numeric" , second: "numeric" ,
+  }; return new Intl.DateTimeFormat("en-US", options).format(date); } %>
+
+<body>
+  <!-- navbar -->
+  <%- include('../components/navbar.ejs'); %>
+
+  <div class="container">
+    <div class="header">
+      <h2>
+        <%= user.username %>s' Application
+      </h2>
+    </div>
+    <form method="post" action="/upload" class="form" id="form" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <p>
+          <%= form.name %>
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="designation">Designation</label>
+        <p>
+          <%= form.designation %>
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="Organization">Organization</label>
+        <p>
+          <%= form.Organization %>
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="department">Department</label>
+        <p>
+          <%= form.department %>
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="mobileNumber">Mobile Number</label>
+        <p>
+          <%= form.mobileNumber %>
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <p>
+          <%= form.email %>
+        </p>
+      </div>
+
+      <div class="form-group mailing-address">
+        <label for="address">Residential Address</label>
+        <p>
+          <%= form.address %>
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="payment-date">Date of Payment</label>
+        <p>
+          <%= formatDate(form.paymentdate) ?? "Pending" %>
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="Registration-Fee">Registration Fee</label>
+        <p>
+          <%= form.RegistrationFee %>
+        </p>
+      </div>
+
+      <!-- image file -->
+      <div class="form-group">
+        <label for="image">Transaction Image File</label>
+        <% if (form.ImageFile.filename) { %>
+        <button type="button" class="downloadFile"><a target="_blank" href="/download/img">Download Transaction Image</a></button>
+        <% } else { %>
+        <input type="file" name="image" id="file" accept=".png, .jpg, .jpeg, .bmp" required />
+        <% } %>
+      </div>
+      <!-- pdf file -->
+      <div class="form-group">
+        <label for="pdf">Researsh Paper</label>
+        <% if (form.pdfFile.filename) { %>
+        <button type="button" class="downloadFile"><a target="_blank" href="/download/pdf">Download Researsh Paper</a></button>
+        <% } else { %>
+        <input type="file" name="pdf" id="file" accept=".pdf" required />
+        <% } %>
+      </div>
+      <% if (!form.pdfFile.filename) { %>
+      <div class="form-group">
+        <label for="upload">Click to Save Form</label>
+        <input type="submit" name="save" class="RegisterBtn" value="Save" />
+      </div>
+      <% } %>
+    </form>
+    <div class="pay">
+      <div class="qr">
+        <img src="/images/qrcode.png" alt="merchant1244438.augp@aubank" id="upiId">
+      </div>
+      <div class="bank">
+        <ul>
+          <li><b>Account Name:</b> AISHWARYA COLLEGE OF EDUCATION</li>
+          <li><b>Bank Name:</b> AU SMALL FINANCE BANK</li>
+          <li><b>Account Number:</b> 2302225848707</li>
+          <li><b>Branch:</b> PWD COLONY, JODHPUR</li>
+          <li><b>IFSC Code:</b> AUBL 0002258</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note">
+      <span style="color: red">Note:</span>
+      The participants are requested to send a screenshot of online fee
+      payment receipt along with participant name clearly on whatsapp on
+      <a href="tel:9587552469">9587552469</a>. The receipt will be verified and the participant will be
+      registered for the event.
+    </p>
+  </div>
+
+  <%- include('../components/footer.ejs'); %>
+  <script src="js/dashboard.js"></script>
+</body>
+
+</html>

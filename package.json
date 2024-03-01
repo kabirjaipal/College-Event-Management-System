@@ -1,0 +1,57 @@
+{
+  "name": "college-event-website",
+  "version": "1.0.0",
+  "description": "A college event management website",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "college",
+    "event",
+    "website",
+    "management",
+    "html",
+    "css",
+    "javascript",
+    "node",
+    "express",
+    "mongodb",
+    "mongoose",
+    "ejs",
+    "passport"
+  ],
+  "author": "KabirJaipal",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.9",
+    "express": "^4.18.3",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.18.0",
+    "memorystore": "^1.6.7",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.2.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.11",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/college-event-website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/college-event-website/issues"
+  },
+  "homepage": "https://github.com/yourusername/college-event-website#readme"
+}

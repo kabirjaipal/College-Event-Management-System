@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Page</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<style>
+  .container {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .head {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+  }
+
+  .head h2 {
+    width: 50%;
+    font-size: 2.2rem;
+    color: var(--secondary_color);
+  }
+
+  .head input {
+    border-radius: 0.3rem;
+    padding: 0.9rem 2rem;
+    width: 50%;
+    outline: none;
+    border: 1px solid var(--secondary_color);
+    font-size: 1.5rem;
+  }
+
+  .heading {
+    padding-top: 1rem;
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+  }
+
+  .heading p {
+    padding: 0.5rem 0.9rem;
+    background-color: var(--secondary_color);
+    color: var(--primary_color);
+    border-radius: 0.5rem;
+    font-weight: bold;
+  }
+
+  .users {
+    display: block;
+    margin: auto;
+    max-width: 90%;
+    width: 100%;
+    padding: 1rem 2rem;
+  }
+
+  .users .user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--secondary_color);
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+  }
+
+  .user .user_info {
+    width: 60%;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    gap: 0.5rem;
+  }
+
+  .user_info li {
+    font-size: 1.5rem;
+  }
+
+  .user .btns {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .btns form button {
+    background: transparent;
+    border: none;
+  }
+
+  .btns button i {
+    font-size: 1.5rem;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  .btns .fa-download {
+    color: green;
+  }
+
+  .btns .fa-image {
+    color: coral;
+  }
+
+  .btns .fa-trash {
+    color: red;
+  }
+
+  .btns .fa-edit {
+    color: var(--secondary_color);
+  }
+
+
+  @media only screen and (max-width: 768px) {
+
+    /* Mobile styles */
+    .container {
+      padding: 0.5rem;
+    }
+
+    .head {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    .head h2,
+    .head input {
+      width: 100%;
+    }
+
+    .heading {
+      display: none;
+    }
+
+    .users {
+      max-width: 100%;
+      padding: 1rem 0;
+    }
+
+    .user {
+      gap: 30px;
+    }
+
+    .user_info,
+    .btns {
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+    }
+
+    .user_info li {
+      width: 100%;
+      font-size: 0.7rem;
+      text-align: left;
+    }
+
+    .btns {
+      gap: 3px;
+    }
+
+    .btns form button {
+      margin-top: 0.5rem;
+    }
+
+    .btns button i {
+      font-size: 0.6rem;
+    }
+
+    .users .user {
+      align-items: center;
+    }
+  }
+
+  @media only screen and (min-width: 769px) and (max-width: 1024px) {
+
+    /* Tablet styles */
+    .container {
+      padding: 1rem;
+    }
+
+    .head input,
+    .head h2,
+    .heading,
+    .users {
+      width: 80%;
+      margin: auto;
+    }
+  }
+</style>
+
+<body>
+  <!-- navbar -->
+  <%- include('../components/navbar.ejs'); %>
+  <div class="container">
+    <div class="head">
+      <h2> Admin Panel</h2>
+      <input type="search" name="search" id="search" placeholder="Search <%= users.length %> Users Here" />
+    </div>
+    <div class="heading">
+      <p for="index">Index</p>
+      <p for="name">Name</p>
+      <p for="email">Email</p>
+    </div>
+    <!-- Render dynamic users -->
+    <div class="users">
+      <% if (users.length > 0) { %>
+      <% users.forEach((user,index)=> { %>
+      <div class="user" data-user-id="<%= user._id %>">
+        <ul class="user_info">
+          <li class="user_index">
+            <%= index+1 %>.
+          </li>
+          <li class="user_name">
+            <%= user.username %>
+          </li>
+          <li class="user_email">
+            <%= user.email %>
+          </li>
+        </ul>
+        <div class="btns">
+          <form action="/download/pdf" method="POST">
+            <input type="hidden" name="userId" value="<%= user._id %>" />
+            <button type="submit"><i class="fa fa-download"></i></button>
+          </form>
+          <form action="/download/img" method="POST">
+            <input type="hidden" name="userId" value="<%= user._id %>" />
+            <button type="submit"><i class="fa fa-image"></i></button>
+          </form>
+          <form action="/users?_method=DELETE" method="POST" onsubmit="return confirm('Are you sure?');">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="hidden" name="userId" value="<%= user._id %>" />
+            <button type="submit"><i class="fa fa-trash"></i></button>
+          </form>
+          <form action="/users?_method=PUT" method="POST">
+            <input type="hidden" name="_method" value="PUT">
+            <input type="hidden" name="userId" value="<%= user._id %>" />
+            <button type="submit"><i class="fa fa-edit"></i></button>
+          </form>
+        </div>
+      </div>
+      <% }); %>
+      <% } else { %>
+      <p class="no_user">No users found.</p>
+      <% } %>
+    </div>
+  </div>
+
+  <%- include('../components/footer.ejs'); %>
+</body>
+<script src="js/adminSearch.js"></script>
+
+</html>

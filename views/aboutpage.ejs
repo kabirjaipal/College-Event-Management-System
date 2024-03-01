@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+<style>
+  .about-section {
+    width: 100%;
+    padding: 0.5rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .about-section :nth-child(3) {
+    flex-direction: row-reverse;
+  }
+
+  .about-section :nth-child(7) {
+    flex-direction: row-reverse;
+  }
+
+  .about-section :nth-child(9) {
+    flex-direction: row-reverse;
+  }
+
+  .about-section :nth-child(11) {
+    flex-direction: row-reverse;
+  }
+
+  .about-box {
+    width: 100%;
+    margin: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--heading_color);
+    width: 100%;
+  }
+
+  .about-box .para {
+    width: 50%;
+    text-align: justify;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .about-box .para ul {
+    padding: 0 1rem
+  }
+
+  .first_para {
+    padding: 3rem !important;
+    width: 100% !important;
+  }
+
+  .first_para ul {
+    margin-top: 1rem;
+    list-style: none;
+    font-weight: bold;
+  }
+
+  .first_para ol {
+    padding-left: 1rem;
+  }
+
+  .para h2 {
+    text-align: center;
+  }
+
+  .para ul {
+    text-align: left;
+  }
+
+  .about-box .img {
+    width: 50%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5em;
+  }
+
+  .about-box .img img {
+    max-width: 80%;
+    height: 18.75em;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 0.625rem;
+    padding: 0.1rem;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  .about-box .img img:hover {
+    transform: scale(0.9);
+  }
+
+  .about-box .para h2 {
+    color: var(--heading_color);
+    margin: 1.25rem;
+  }
+
+  .facultys,
+  .faculty-info {
+    text-align: center;
+    margin: 1.875rem 0.625rem;
+  }
+
+  /* Desktop */
+  @media only screen and (min-width: 900px) {}
+
+  /* Tablet */
+  @media only screen and (max-width: 900px) {
+    .about-box {
+      height: max-content;
+    }
+
+    .about-section {
+      padding: 1.25rem 0.9rem;
+    }
+
+    .about-box .img img {
+      height: 12.5em;
+    }
+
+    .about-box .para,
+    .about-box .img {
+      width: 100%;
+    }
+
+    .about-box {
+      flex-direction: column;
+    }
+
+    .facultys {
+      font-size: 1.3rem;
+    }
+  }
+
+  /* Mobile */
+  @media only screen and (max-width: 700px) {
+    .about-box {
+      flex-direction: column !important;
+      padding: 1rem;
+    }
+
+    .about-box h2 {
+      font-size: 0.9rem;
+    }
+
+    .about-box .para {
+      font-size: 0.875rem;
+    }
+
+    .first_para {
+      padding: 0.2rem !important;
+    }
+
+    .facultys {
+      font-size: 1.25rem;
+      margin: 1.25rem 0.625rem;
+    }
+
+    .faculty-info {
+      font-size: 0.875rem;
+      margin: 1.25rem 0.625rem;
+    }
+
+  }
+
+  /* iPhone */
+  @media only screen and (max-width: 400px) {
+    .about-box {
+      flex-direction: column !important;
+      padding: 1rem;
+    }
+
+    .about-box h2 {
+      font-size: 0.9375rem;
+    }
+
+    .about-box .para {
+      font-size: 0.6875rem;
+    }
+
+    .facultys {
+      font-size: 0.9375rem;
+      margin: 0.625rem 0.625rem;
+    }
+
+    .faculty-info {
+      font-size: 0.6875rem;
+      margin: 0.625rem 0.625rem;
+    }
+  }
+</style>
+
+<body>
+  <%- include('../components/navbar.ejs'); %>
+
+  <div class="about-section" id="about">
+    <div class="about-box" id="GTET">
+      <div class="para first_para">
+        <h2>GAYATRI TECHNICAL EDUCATION TRUST (GTET) </h2>
+        GAYATRI TECHNICAL EDUCATION TRUST (GTET) has come into existence in August 2002 with a unique vision. We have
+        been emphasizing to enhance our substantial reputation for providing quality education through collaborative
+        programs so as to become a well-recognized centre of excellence. We have been striving to build an
+        organization that stays true to its objectives and to provide the best possible services to all the sections
+        of the society. Not only that, we also stand up for our commitment towards the society at large and work
+        towards building a knowledgeable society. We've been shaping our activities around the fulfillment of the ever
+        changing society needs. Our efficient leadership ensures the unity of purpose & direction and our associates
+        resolutely dedicate their efforts towards achieving the objectives that we've set for ourselves. GTET is
+        promoting learning in all fields of society for the community development & welfare for the economically &
+        social backward without any discretion. We are dedicated to promote excellence through academic achievement,
+        research, creativity, innovation, interaction and collaboration, personality development and leadership
+        qualities, therefore following educational institutions are established under the aegis of GTET.
+        <ul>
+          <li>» Aishwarya College of Education, K N Nagar, Jodhpur</li>
+          <li>» Aishwarya College of Education, Pali (Rajasthan)</li>
+          <li>» ACE International School, Jodhpur</li>
+          <li>» Delhi Public Primary School, K N Nagar, Jodhpur</li>
+          <li>» Aishwarya College of Education (LAW), Jodhpur ACMRC, Jodhpur</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="about-box" id="about-jodhpur">
+      <div class="para">
+        <h2>About Jodhpur</h2>
+        Jodhpur, the “Blue City” of India, captivates with its historical
+        charm and vibrant culture. Explore majestic Mehrangarh Fort, stroll
+        through the narrow, azure-hues streets of the old city, and experience
+        the regal opulence of Umaid Bhawan Palace. Immerse yourself in the
+        rich heritage, colorful markets, and warm hospitality that define
+        Jodhpur. Jodhpur is located towards the western side of the capital
+        city of Jaipur. This city is the second biggest city in the state of
+        Rajasthan. Being a place of princely palaces, magnificent forts as
+        well as age old temples. This city of Rajasthan is among the famous
+        tourist destinations in the state as well as India. Positioned in the
+        Thar Desert's stark landscape, Jodhpur experiences a bright and sunny
+        weather all through the year. For this, the city is also known as "Sun
+        City". Jodhpur is well connected by air, Rail & Road from New Delhi,
+        Mumbai, Jaipur, Ahmadabad and other prominent cities of the country.
+        Most attractive tourist place near Jodhpur is Jaisalmer which is 292
+        kms from Jodhpur. It is the largest district of Rajasthan and 3rd
+        largest district by territorial region in the country, hugged on the
+        west & south-west by the Pakistani border. nicknamed as "The Golden
+        city", Another attraction is Ajmer which is 244 kms from Jodhpur.
+        Ajmer is surrounded by the Aravalli Mountains. Last but not the least
+        is Udaipur which is 244 kms from Jodhpur. Udaipur, with its lakes, and
+        historic palaces and architecture, is a major destination for
+        tourists, both domestic and foreign nationals visiting the state, Also
+        known as the "City of Lakes". Your journey awaits in this royal oasis
+        of Rajasthan.
+      </div>
+      <div class="img">
+        <img src="/images/jodhpurfort.webp" alt="" />
+      </div>
+    </div>
+    <div class="about-box" id="about-the-College">
+      <div class="para">
+        <h2>About The College</h2>
+        Aishwarya College of Education (ACE) established under the aegis of
+        Gayatri Technical Education Trust, it is committed to fulfill the
+        dreams envisioned by its founder members of providing modern technical
+        and value based education to its students. College acquires a place of
+        prominence in Western Rajasthan for providing multi-disciplinary,
+        professional education that would help students to carve their own
+        niche in the society. A team of highly qualified and committed
+        professionals is devoted for grooming of students to make them better
+        equipped professionals and be our brand ambassadors, as we believe in
+        practice and not mere words and the fact is reiterated by our ever
+        improving results both in academics and extracurricular activities.
+        The college is affiliated with Jai Narain Vyas University Jodhpur,
+        Bikaner Technical University Bikaner, Dr. Bhimrao Ambedker Law
+        University Jaipur in Rajasthan for imparting higher education in
+        various streams. College is accredited by NAAC with ‘B’ Grade &
+        recognized by UGC under section 2(f) & 12(B) of the UGC act 1956
+      </div>
+      <div class="img">
+        <img src="/images/ace-college.png" alt="" />
+      </div>
+    </div>
+    <div class="about-box" id="Conference">
+      <div class="para">
+        <h2>About the Conference</h2>
+        The National Conference titled “Education and Learning- Unlocking
+        opportunities to all” is set to be a pivotal gathering of educators,
+        scholars and policy makers. This conference aims to explore innovative
+        strategies and best practices that promote inclusive and equitable
+        education for diverse learners. Participants can anticipate engaging
+        discussions on educational disparities. The conference serves as a
+        platform for sharing insights, research findings and success stories.
+        Attendees can anticipate keynote addresses, interactive workshops,
+        panel discussions, providing a platform to unlocking opportunities
+        echoes a shared vision of fostering a more accessible and empowering
+        educational environment for every individual, setting the stage for
+        collaborative advancements in the field of learning.
+      </div>
+      <div class="img">
+        <img src="/images/confrence.jpg" alt="" />
+      </div>
+    </div>
+
+    <h1 class="facultys">Call for Paper/ Submission of Abstract</h1>
+    <div class="faculty-info">
+      The three – day National Conference invites research papers from the
+      academicians, scholars and experts at national level. The authors are
+      invited to submit original, unpublished research papers on the related
+      theme and sub-themes.
+    </div>
+    <div class="about-box" id="Science">
+      <div class="para">
+        <h2>Faculty of Science</h2>
+        <ul>
+          <li>Community Health & Hygiene</li>
+          <li>Communicable Diseases</li>
+          <li>Environment and Development</li>
+          <li>Scientific Perspective towards Social Economic Growth</li>
+          <li>Modern Agriculture Techniques</li>
+          <li>Any relevant topic</li>
+        </ul>
+      </div>
+      <div class="img">
+        <img src="/images/facultyofscience.jpg" alt="" />
+      </div>
+    </div>
+    <div class="about-box" id="Arts">
+      <div class="para">
+        <h2>Faculty of Arts</h2>
+        <ul>
+          <li>Social Justice</li>
+          <li>Development of well-being society</li>
+          <li>Role of Social Media</li>
+          <li>Social Problem</li>
+          <li>Indian Knowledge System</li>
+          <li>Any relevant topic</li>
+        </ul>
+      </div>
+      <div class="img">
+        <img src="/images/facultyofarts.jpg" alt="" />
+      </div>
+    </div>
+    <div class="about-box" id="Management">
+      <div class="para">
+        <h2>Faculty of Commerce & Management</h2>
+        <ul>
+          <li>Impact of CSR</li>
+          <li>Digital/Social Media Marketing</li>
+          <li>Money as motivator</li>
+          <li>Emotional Intelligence</li>
+          <li>Impact of Economic Policy on Economic</li>
+          <li>Any relevant topic</li>
+        </ul>
+      </div>
+      <div class="img">
+        <img src="/images/facultyofcommers.jpg" alt="" />
+      </div>
+    </div>
+    <div class="about-box" id="Law">
+      <div class="para">
+        <h2>Faculty of Law</h2>
+        <ul>
+          <li>Environmental Laws</li>
+          <li>Human Rights in different groups</li>
+          <li>Cyber Law</li>
+          <li>Uniform Civil Court</li>
+          <li>Modern Agriculture Techniques</li>
+          <li>Any relevant topic</li>
+        </ul>
+      </div>
+      <div class="img">
+        <img src="/images/facultyoflaw.jpg" alt="" />
+      </div>
+    </div>
+    <div class="about-box" id="Computer-science">
+      <div class="para">
+        <h2>Faculty of Computer Science</h2>
+        <ul>
+          <li>Artificial Intelligence</li>
+          <li>Ethical Hacking</li>
+          <li>Networking and Security</li>
+          <li>Web Development</li>
+          <li>Android Development and Applications</li>
+          <li>Any relevant topic</li>
+        </ul>
+      </div>
+      <div class="img">
+        <img src="/images/facultyofcomputer.jpg" alt="" />
+      </div>
+    </div>
+    <section class="about-box" id="Publication">
+      <div class="para first_para">
+        <h2>Publication of Paper</h2>
+        Paper will be published online in “International Journal of Advanced Research and Innovative Ideas in
+        Education” (IJARIIE) ISSN (O) - 2395-4396, ISO 9001-2008 certified journal.
+        <h2>Submission Guidelines</h2>
+        <ol type="1" style="line-height: 2;">
+          <li> Word Limit - Abstract is 100-200 words and for research paper up to 2000 words.</li>
+          <li> Number of Authors not more than three</li>
+          <li> Font Times New Roman</li>
+          <li>Font Size- 12</li>
+          <li>Line Spacing 1.5</li>
+          <li> The full paper should include but not limited to abstract, keywords, introduction, methodology,
+            conclusion, figures and references.</li>
+          <li> Author details Full name, designation, affiliation, phone number and email Id should be on first
+            page of the manuscript.</li>
+          <li> Use APA 7th Edition for in-text citation and referencing</li>
+          <li> Tables and charts should have self-explanatory titles and be numbered as referred to in the text. The
+            sources, wherever necessary should be mentioned at the bottom of the tables/ charts/ graphs.</li>
+        </ol>
+      </div>
+
+    </section>
+  </div>
+  <%- include('../components/footer.ejs'); %>
+</body>
+
+</html>

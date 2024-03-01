@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ACE Jodhpur</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+<style>
+  .main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .home-section {
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .home-section h1 {
+    font-size: 3rem;
+    color: var(--heading_color);
+    text-shadow: 0 0 1rem var(--heading_color);
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+  }
+
+  .home-section span {
+    font-size: 1rem;
+  }
+
+  .home-section h2 {
+    font-size: 1.2rem;
+    margin-top: 0.5em;
+  }
+
+  .home-section .date {
+    font-size: 2.2rem;
+    color: var(--heading_color);
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+
+  .home-section h4,
+  .home-section .address {
+    font-size: 0.9rem;
+  }
+
+  .links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 5px;
+  }
+
+  .links a {
+    color: var(--text_color);
+    font-weight: bold;
+  }
+
+  .main-container marquee {
+    background-color: var(--heading_color);
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    margin: 1rem;
+  }
+
+  .bg_image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 50vh;
+  }
+
+  .bg_image img {
+    width: 100%;
+    height: 50vh;
+  }
+
+  /* Default styles for all screen sizes */
+
+  /* Tablet styles */
+  @media only screen and (max-width: 1023px) and (min-width: 768px) {
+    .home-section h1 {
+      font-size: 2.5rem;
+    }
+
+    .home-section h2 {
+      font-size: 1.2rem;
+    }
+
+    .home-section .date {
+      font-size: 2rem;
+    }
+
+    .home-section h4,
+    .home-section .address {
+      font-size: 0.8rem;
+    }
+
+    .main-container marquee {
+      font-size: 1.2rem;
+    }
+
+    .bg_image img {
+      height: 50vh;
+    }
+  }
+
+  /* Mobile styles */
+  @media only screen and (max-width: 767px) {
+    .home-section {
+      margin-top: 1rem;
+    }
+
+    .home-section h1 {
+      font-size: 2rem;
+    }
+
+    .home-section h2 {
+      font-size: 1rem;
+    }
+
+    .home-section .date {
+      font-size: 1.8rem;
+    }
+
+    .home-section h4,
+    .home-section .address {
+      font-size: 0.7rem;
+    }
+
+    .main-container marquee {
+      font-size: 1rem;
+    }
+
+    .links {
+      flex-direction: column;
+    }
+
+    .bg_image img {
+      height: 70vh;
+    }
+  }
+
+  /* iPhone styles */
+  @media only screen and (max-width: 480px) {
+    .home-section h1 {
+      font-size: 1.8rem;
+    }
+
+    .home-section h2 {
+      font-size: 0.9rem;
+    }
+
+    .home-section .date {
+      font-size: 1.5rem;
+    }
+
+    .home-section h4,
+    .home-section .address {
+      font-size: 0.6rem;
+    }
+
+    .main-container marquee {
+      font-size: 1rem;
+    }
+
+    .bg_image img {
+      height: 40vh;
+    }
+  }
+</style>
+
+<body>
+  <!-- navbar -->
+  <%- include('../components/navbar.ejs', { user: user }); %>
+
+  <div class="main-container">
+    <div class="bg_image">
+      <img src="/images/ace-college.png" alt="">
+    </div>
+    <div class="home-section" id="home">
+      <h1>National Conference</h1>
+      <span>on</span>
+      <h2>
+        Education and Learning: Unlocking Opportunities to Create Pathways
+        for Advancement
+      </h2>
+      <span class="date"> February, 2024</span>
+      <h4>
+        (Affiliated to Jai Narain Vyas University, Jodhpur),(Accredited by
+        NAAC with B Grade & Recognized by UGC under Section 2(f) &12(B) of
+        UGC Act 1956)
+      </h4>
+      <span class="address">A-9, Ist Extension,Kamla Nehru Nagar, Jodhpur-342008 (Raj.)</span>
+      <div class="links">
+        <a target="_blank" href="https://aishwaryacollege.edu.in">
+          Website: www.aishwaryacollege.edu.in</a>
+
+        <a href="mailto:aceresearchvision@gmail.com">Email ID: aceresearchvision@gmail.com</a>
+      </div>
+    </div>
+    <marquee> Welcome to Aishwarya College of Education in Jodhpur. Providing quality education for a brighter future.</marquee>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,174 @@
+<link rel="stylesheet" href="css/style.css" />
+
+<link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+<style>
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--secondary_color);
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: max-content;
+  }
+
+  .logo a {
+    font-size: 2.1429rem;
+  }
+
+  .logo img {
+    height: 2.5rem;
+    width: auto;
+  }
+
+  .nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-links a {
+    color: var(--primary_color);
+    text-decoration: none;
+    margin: 0 15px;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+
+  .menu-icon {
+    cursor: pointer;
+    display: none;
+  }
+
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary_color);
+    margin: 5px 0;
+    transition: 0.4s;
+  }
+
+  /* Media Queries */
+
+  @media (max-width: 1200px) {
+
+    /* Styles for tablets */
+    .navbar {
+      padding: 1rem 2rem;
+    }
+  }
+
+  @media (max-width: 992px) {
+
+    /* Styles for medium-sized devices (small tablets and large phones) */
+    .navbar {
+      padding: 1rem 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .navbar {
+      padding: 1rem 2rem;
+    }
+
+    .nav-links {
+      background: var(--secondary_color);
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 4rem;
+      right: 0;
+      width: 100%;
+      z-index: 999;
+      animation: slideIn 0.5s ease-in-out;
+    }
+
+    .nav-links a {
+      padding: 1rem;
+      color: var(--primary_color);
+    }
+
+    .nav-links a:hover {
+      padding-left: 3rem !important;
+    }
+
+    .nav-links.active {
+      display: flex;
+    }
+
+    .menu-icon {
+      display: block;
+    }
+
+    .menu-icon.active .bar:nth-child(1) {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .menu-icon.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-icon.active .bar:nth-child(3) {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(100%);
+      }
+
+      to {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+
+    /* Styles for phones */
+    .navbar {
+      padding: 1rem 1.5rem;
+    }
+  }
+</style>
+
+<div class="navbar">
+  <div class="logo">
+    <a href="/"><img src="/images/ace-logo.png" alt="" /></a>
+  </div>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/mentor">Mentor</a>
+    <% if (!user) { %>
+    <a href="/register">Register</a>
+    <a href="/login">Login</a>
+    <% } else { %>
+    <% if (user.role == "admin") { %>
+    <a href="/adminDashboard">Admin</a>
+    <% } %>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/profile">Profile</a>
+    <a href="/logout">Logout</a>
+    <% } %>
+  </div>
+  <div class="menu-icon" onclick="toggleMenu()">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+</div>
+
+<!-- JavaScript -->
+<!-- <script src="js/navbar.js"></script> -->
+<script>
+  function toggleMenu() {
+    var navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
+  }
+</script>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <style>
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 62.2vh
+    }
+
+    .form {
+      max-width: 25rem;
+      padding: 1.25rem;
+      border-radius: 0.625rem;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 1.875rem;
+    }
+
+    .header h1 {
+      color: var(--text_color);
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: var(--text_color);
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 0.75rem;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 0.375rem;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--bhagva_color);
+    }
+
+    .form-group input[type="submit"] {
+      background-color: var(--secondary_color);
+      color: #fff;
+      padding: 1rem;
+      border: none;
+      border-radius: 0.375rem;
+      cursor: pointer;
+      font-size: 1.125rem;
+      transition: all 0.3s ease-in-out;
+      font-weight: bold;
+    }
+
+    .form-group input[type="submit"]:hover {
+      opacity: 0.8;
+    }
+
+    /* Desktop */
+    @media only screen and (min-width: 64em) {
+      .form {
+        max-width: 30rem;
+      }
+    }
+
+    /* Tablet */
+    @media only screen and (min-width: 48em) and (max-width: 63.99em) {
+
+      /* No specific changes for tablet */
+      .container {
+        height: 58.6vh;
+      }
+    }
+
+    /* Mobile */
+    @media only screen and (max-width: 47.99em) {
+      .container {
+        height: 56vh;
+        margin-top: 5px;
+      }
+
+      .form {
+        max-width: 20rem;
+      }
+    }
+
+    /* iPhone */
+    @media only screen and (max-width: 23.75em) {
+      .header h1 {
+        font-size: 1.5rem;
+      }
+
+      .form-group label {
+        font-size: 0.9rem;
+      }
+
+      .form-group input {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- navbar -->
+  <%- include('../components/navbar.ejs'); %>
+
+  <div class="container">
+    <div class="header">
+      <h1>Login</h1>
+    </div>
+    <form method="post" action="/login" class="form">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="Enter your email address" />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="Enter your password" />
+      </div>
+
+      <div class="form-group">
+        <input type="submit" value="Login" />
+      </div>
+    </form>
+  </div>
+
+  <%- include('../components/footer.ejs'); %>
+
+</body>
+
+</html>
